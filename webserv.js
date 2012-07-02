@@ -1,5 +1,6 @@
 var express = require('express');
-var mongo = require("mongojs");
+//var mongo = require("mongojs");
+var util = require("util");
 
 //user/pass hard coded during testing.. nothing to see anyway.
 //var dbAdr = "wsp-user:dbpassword@ds033257.mongolab.com:33257/wsp-db";
@@ -11,6 +12,8 @@ var app = express.createServer();
 // Configuration
 app.configure( function() {
 });
+
+util.puts("hej!");
 
 // Routes
 app.get('/', function(req, res) {

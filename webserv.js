@@ -8,6 +8,7 @@ var util = require("util");
 //var db = mongo.connect(dbAdr, collections);
 
 var app = express.createServer();
+var port = process.env.PORT || 19270;
 
 // Configuration
 app.configure( function() {
@@ -20,4 +21,4 @@ app.get('/', function(req, res) {
     res.send('What do you know, det funkar ju.');
 });
 
-app.listen(process.env.PORT);
+app.listen(port);

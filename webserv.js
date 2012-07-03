@@ -13,7 +13,7 @@ var app = express.createServer();
 app.configure( function() {
 });
 
-util.puts("hej!");
+util.puts("hej nodester!");
 
 // Routes
 app.get('/', function(req, res) {

@@ -14,7 +14,7 @@ var port = process.env.PORT || 19270;
 app.configure( function() {
 });
 
-util.puts("hej nodester!");
+util.puts("hej nodester");
 
 // Routes
 app.get('/', function(req, res) {

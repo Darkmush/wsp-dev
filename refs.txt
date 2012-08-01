@@ -1,2 +1,0 @@
-http://shapeshed.com/creating-a-basic-site-with-node-and-express/
-https://github.com/nodester/nodester/wiki/How-to-deploy-to-Nodester-from-Cloud9-IDE

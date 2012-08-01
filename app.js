@@ -4,7 +4,7 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
+  , promoter = require('./routes/promoter')
   , http = require('http')
   , path = require('path');
 
@@ -18,6 +18,7 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  //cookies för vad?
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
   app.use(app.router);
@@ -29,8 +30,8 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+app.get('/', promoter.home);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+  console.log("Up & Running on port: " + app.get('port'));
 });

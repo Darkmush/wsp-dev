@@ -1,0 +1,16 @@
+{
+  "name": "wsp-dev",
+  "subdomain": "darkmush.wsp-dev",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "version": "0.0.0-2",
+  "engines": {
+    "node": "0.6.x"
+  },
+  "dependencies": {
+    "express": "3.0.0rc1",
+    "jade": "*",
+    "stylus": "*"
+  }
+}

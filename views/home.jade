@@ -1,5 +1,9 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+#container
+h1= title
+#display
+    #login        
+        form(method='post')
+            | Password:
+            div
+                input(type='password', name='password')
+                input(type='submit', value='Log In')

@@ -20,3 +20,9 @@ exports.home_post_handler = function(req, res){
 	req.session.auth = true;
 	res.redirect('/');
 };
+
+exports.embed_post_handler = function(req, res){
+	var string = req.body.code || "no code";
+	res.writeHead(200, {'Content-Type': 'text/html'});
+    	res.end(string);
+};

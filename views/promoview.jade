@@ -1,9 +1,13 @@
 #container
 h1= title
 #display
-    #login        
-        form(method='post')
-            | Password:
+    #embed        
+        form(method='post', action='/embed')
+            | SoundCloud embed code:
             div
-                input(type='password', name='password')
-                input(type='submit', value='Log In')
+                input(type='text', name='code')
+                input(type='submit', value='Embed')
+    #logout        
+        form(method='post')
+            div
+                input(type='submit', value='Log Out')

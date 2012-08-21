@@ -23,5 +23,11 @@ exports.home_post_handler = function(req, res){
 
 exports.embed_post_handler = function(req, res){
 	var string = req.body.code || "no code";
-	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: string});
+	if(string == "no code"){
+		res.redirect('/');
+		return;	
+	}
+	var src = string.substring(71,158);
+	//src += "&show_artwork=false";
+	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: src});
 };

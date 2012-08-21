@@ -23,6 +23,5 @@ exports.home_post_handler = function(req, res){
 
 exports.embed_post_handler = function(req, res){
 	var string = req.body.code || "no code";
-	res.writeHead(200, {'Content-Type': 'text/html'});
-    	res.end(string);
+	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: string});
 };

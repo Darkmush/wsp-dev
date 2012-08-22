@@ -36,9 +36,13 @@ exports.embed_post_handler = function(req, res){
 	//fs.writeFile("test.html", sourcestring, function(err){
         //if (err) console.log(err);
         //});
-        res.writeHeader(200, {"Content-Type": "text/html"});  
-        res.write(sourcestring);  
-        res.end();  
+	
+	////working
+        //res.writeHeader(200, {"Content-Type": "text/html"});  
+        //res.write(sourcestring);  
+        //res.end();
+
+	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: src });
 };
 
 

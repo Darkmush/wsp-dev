@@ -12,7 +12,7 @@ exports.home_post_handler = function(req, res){
 
 	var pwstring = req.body.password || "";
 	var d = require('crypto').createHash('sha1').update(pwstring).digest('hex');
-	if(d != "065b68a1145ba11e6df44564233c2ffbe901c105"){
+	if(d != "8f79a9f2c09519ee951c6101d1c49c75ed0703d5"){
 		req.session.destroy();
 		res.redirect('/');
 		return;	

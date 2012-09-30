@@ -21,6 +21,12 @@ exports.home_post_handler = function(req, res){
 	res.redirect('/');
 };
 
+exports.send_post_handler = function(req, res){
+	var scid = req.body.id;
+	var emailList = req.body.address.split(",");
+	
+};
+
 exports.embed_post_handler = function(req, res){
 	var string = req.body.code || "no code";
 	if(string == "no code"){

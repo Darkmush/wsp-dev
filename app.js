@@ -33,6 +33,7 @@ app.configure('development', function(){
 app.get('/', promoter.home);
 app.post('/', promoter.home_post_handler);
 app.post('/embed', promoter.embed_post_handler);
+app.post('/send', promoter.send_post_handler);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Up & Running on port: " + app.get('port'));

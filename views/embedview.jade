@@ -1,0 +1,21 @@
+doctype 5
+#container
+h1= title
+#display
+    #showembed
+        iframe(width='800', height='166', scrolling='no', frameborder='no', src= id)
+    #back
+        form(method='get', action='/')
+            div
+                input(type='submit', value='Back')
+    #mail        
+        form(method='post', action='/send')
+            div
+            | Send email to:
+            div
+                input(type='text', name='address')
+                input(type='submit', value='Send email')
+    #logout        
+        form(method='post', action='/')
+            div
+                input(type='submit', value='Log Out')

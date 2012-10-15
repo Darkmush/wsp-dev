@@ -2,19 +2,36 @@ doctype 5
 #container
 h1= title
 #display
+    #toptext       
+            div
+            | Text above soundcloud player: 
+            div
+                input(type='text', name='toptext')
+
     #showembed
         iframe(width='800', height='166', scrolling='no', frameborder='no', src= id)
+
+    #floortext       
+            div
+            | Text below soundcloud player: 
+            div
+                input(type='text', name='floortext')
+
+    #mail        
+        form(method='post', action='/send')
+            div
+            | Send email to (email1@site.tld,email2@site.tld,email3@site.tld): 
+            div
+                input(type='text', width='800', name='address')
+                input(type='submit', value='Send email')
+    #errormsg
+            div
+            = errormsg
+
     #back
         form(method='get', action='/')
             div
                 input(type='submit', value='Back')
-    #mail        
-        form(method='post', action='/send')
-            div
-            | Send email to:
-            div
-                input(type='text', name='address')
-                input(type='submit', value='Send email')
     #logout        
         form(method='post', action='/')
             div

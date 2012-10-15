@@ -2,7 +2,7 @@ var util = require('util');
 
 exports.home = function(req, res){
   	if(!req.session.auth){
-   		res.render('home', { title: 'WeSmile Promoter' });
+   		res.render('home', { title: 'WeSmile Promoter'});
    		return;
   	}
 	res.render('promoview', { title: 'WeSmile Promoter - Logged in' });
@@ -33,6 +33,7 @@ exports.embed_post_handler = function(req, res){
 		res.redirect('/');
 		return;	
 	}
+	//fix this.
 	var src = string.substring(71,158);
 	src += "&show_artwork=false";
 
@@ -48,7 +49,7 @@ exports.embed_post_handler = function(req, res){
         //res.write(sourcestring);  
         //res.end();
 
-	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: src });
+	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: src, errormsg: ''});
 };
 
 

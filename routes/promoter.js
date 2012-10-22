@@ -1,4 +1,5 @@
 var util = require('util');
+var nodemailer = require('nodemailer');
 
 exports.home = function(req, res){
   	if(!req.session.auth){
@@ -24,8 +25,30 @@ exports.home_post_handler = function(req, res){
 exports.send_post_handler = function(req, res){
 	var scid = req.body.scid;
 	var emailList = req.body.address.split(",");
+	var smtpTransport = nodemailer.createTransport("SMTP",{
+	service: "Gmail",
+	auth: {
+		user: "wesmilepromoter@gmail.com",
+		pass: "myfirstpassword"
+	}
+	});
 
-
+	for(var ii = 0; ii<emailList.length;ii++){
+		var mailOptions = {
+			from: "WeSmile <wesmilepromoter@gmail.com>",
+			to: emailList[ii],
+			subject: req.body.subject,
+			html: "<p>" + req.body.toptext + "<br>" +"<iframe width='100%' height='166' scrolling='no' frameborder='no' src='"+ scid + "'></iframe><br>" + req.body.floortext + "<br>"
+		}
+		smtpTransport.sendMail(mailOptions, function(error, response){
+			if(error) {
+			 	console.log(error);
+				smtpTransport.close();
+				res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: scid, errormsg: error});
+			}
+		});
+	}
+	smtpTransport.close();
 	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: scid, errormsg: scid});
 };
 

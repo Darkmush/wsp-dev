@@ -22,9 +22,11 @@ exports.home_post_handler = function(req, res){
 };
 
 exports.send_post_handler = function(req, res){
-	var scid = req.body.id;
+	var scid = req.body.scid;
 	var emailList = req.body.address.split(",");
-	
+
+
+	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: scid, errormsg: scid});
 };
 
 exports.embed_post_handler = function(req, res){

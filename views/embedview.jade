@@ -2,30 +2,35 @@ doctype 5
 #container
 h1= title
 #display
-    #toptext       
-            div
-            | Text above soundcloud player: 
-            div
-                input(type='text', name='toptext')
-
-    #showembed
-        iframe(width='800', height='166', scrolling='no', frameborder='no', src= id)
-
-    #floortext       
-            div
-            | Text below soundcloud player: 
-            div
-                input(type='text', name='floortext')
-
-    #mail        
+      #mail        
         form(method='post', action='/send')
             div
-            | Send email to (email1@site.tld,email2@site.tld,email3@site.tld): 
+            | Using: 
+            input(type='text', name='scid', value= id, readonly='')
             div
-                input(type='text', width='800', name='address')
+            br
+            b Mail subject:
+            div
+                input(type='text', name='subject',style='width: 192px;')
+            div
+            b Text above soundcloud player: 
+            div
+                input(type='text', name='toptext', style='width: 400px;')
+            iframe(width='800', height='166', scrolling='no', frameborder='no', src= id)
+            div
+            b Text below soundcloud player: 
+            div
+                input(type='text', name='floortext', style='width: 400px;')
+            | Send email to (email1@site.com,email2@site.org,email3@site.net): 
+            div
+                input(type='text', style='width: 400px;', name='address')
+            div
                 input(type='submit', value='Send email')
     #errormsg
             div
+            br
+            br
+            br
             = errormsg
 
     #back

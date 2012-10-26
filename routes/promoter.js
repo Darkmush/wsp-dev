@@ -38,7 +38,7 @@ exports.send_post_handler = function(req, res){
 			from: "WeSmile <wesmilepromoter@gmail.com>",
 			to: emailList[ii],
 			subject: req.body.subject,
-			html: "<p>" + req.body.toptext + "<br>" +"<iframe width='100%' height='166' scrolling='no' frameborder='no' src='"+ scid + "'></iframe><br>" + req.body.floortext + "<br>"
+			html: '<div>' + req.body.toptext + '</div><br><div>'+scid+'</div><br><div>' + req.body.floortext + '</div>'
 		}
 		smtpTransport.sendMail(mailOptions, function(error, response){
 			if(error) {
@@ -49,7 +49,7 @@ exports.send_post_handler = function(req, res){
 		});
 	}
 	smtpTransport.close();
-	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: scid, errormsg: scid});
+	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: scid, errormsg: "Looks like it worked"});
 };
 
 exports.embed_post_handler = function(req, res){
@@ -74,7 +74,7 @@ exports.embed_post_handler = function(req, res){
         //res.write(sourcestring);  
         //res.end();
 
-	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: src, errormsg: ''});
+	res.render('embedview', { title: 'WeSmile Promoter - Logged in', id: src, raw: string, errormsg: ''});
 };
 
 
